@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja do Giovane</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css" 
+    integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
+</head>
+
+<body>
+    <%# <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/">Navbar</a>
+        <a class="btn btn-primary" href="/produtos/new">Cadastrar Novo</a>
+        <div class="form-group">
+            <%= text_field_tag %>
+            <%# <% end %>
+            <%# <%= button_to "Buscar", nil, class:"btn btn-default" %>
+            <%# <% end %> 
+        <%# </div>  %>
+      <%# </nav> %>
+    <%# <br/> %> 
+<%= nav_bar brand: "Loja", brand_link: root_url do %>
+  <%= menu_group do %>
+    <%= menu_item "Criar novo produto", new_produto_path, class:"btn btn-info" %>
+  <% end %>
+  <%= form_tag busca_produto_path,method: :get, class:"navbar-form nav-bar-right" do %>
+    <div class="form-group row">
+        <%= text_field_tag :nome, @nome, class:"form-control" %>
+        <%= button_to "Buscar", nil, class:"btn btn-primary" %>
+        <% end %>
+    </div>
+<% end %>
+    <div class="container">
+        <%= yield %>
+    </div>
+</body>
+</html>
